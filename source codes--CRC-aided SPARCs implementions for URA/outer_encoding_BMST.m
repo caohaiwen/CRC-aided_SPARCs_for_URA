@@ -1,0 +1,82 @@
+function outer_encoded = outer_encoding_BMST(message, memory, m, num_round, r, protect_sections, num_info_bits_round, orderings)
+  % the CRC-BMST encoding procedure
+  % we only protect information bits via CRC codes
+
+  % message: message bits;
+  % memory: the encoding memory parameter used in BMST encoding;
+  % m: the number of bits for each section;
+  % num_round: the original messages transmitted by each user are splitted into such rounds;
+  % r: a vector indicating the number of redundant bits at each round;
+  % protect_sections: the number of preceding sections protected at current round;
+  % num_info_bits_round: a vector indicating the number of info bits at each round;
+  % orderings: interleavers used in CRC-BMST encoding procedure;
+
+
+% the CRC generator polynomials with different number of CRC bits
+poly{4} = [1 0 0 1 1]; % the number of info bits up to length 11
+
+%poly{5} = [1 0 0 1 0 1]; % up to length 26
+poly{5} = [1 0 1 0 1 1]; % up to length 10
+
+%poly{6} = [1 0 0 0 0 1 1]; % up to length 57
+poly{6} = [1 0 0 0 1 1 1]; % up to (information) length 25
+
+poly{7} = [1 0 1 1 0 1 1 1]; % up to length 56
+
+%poly{8} = [1 0 0 1 0 1 1 1 1]; % up to length 119
+%poly{8} = [1 0 0 0 0 0 1 1 1]; % up to length 119
+poly{8} = [1 1 1 0 1 0 1 1 1]; % up to length 9
+
+%poly{9} = [1 0 1 0 0 1 0 1 1 1]; % up to length 246
+%poly{9} = [1 0 1 1 1 1 1 0 1 1]; % up to length 246
+%poly{9} = [1 1 0 0 0 0 1 0 1 1]; % up to length 13
+poly{9} = [1 0 0 1 1 1 1 0 0 1]; % up to length 8
+
+%poly{10} = [1 1 0 0 0 1 1 0 0 1 1]; % up to length 501
+%poly{10} = [1 0 1 0 1 1 1 0 0 1 1]; % up to length 21
+%poly{10} = [1 0 1 0 0 0 1 1 1 0 1]; % up to length 12
+poly{10} = [1 0 1 0 0 1 1 0 1 1 1]; % up to length 5
+
+% poly{11} = [1 0 0 1 1 1 1 0 1 0 1 1]; % up to length 4
+poly{11} = [1 0 1 0 1 1 1 0 0 0 1 1]; % up to length 12
+
+poly{12} = [1 0 1 0 0 1 0 0 1 1 1 1 1]; % up to length 11
+
+poly{13} = [1 0 0 0 0 1 0 1 1 0 1 1 1 1]; % up to length 11
+
+poly{14} = [1 0 0 0 1 1 0 1 1 1 0 0 0 1 1]; % up to length 11
+
+
+  outer_encoded(1:m) = message(1:m);
+  message_last_end = m;
+  original_encoded_block = zeros(num_round, m);
+  original_encoded_block(1, :) = message(1:m);
+
+  for current_round = 2 : num_round
+    protected_info_bits = [];
+    num_protect_section = protect_sections(current_round);
+    encoded_last_end = (current_round-1)*m;
+    info_current = message(message_last_end+1 : message_last_end + m -r(current_round));
+    start_ = 0;
+    if (current_round > num_protect_section)
+      start_ = num_info_bits_round(current_round-num_protect_section);
+    end
+    protected_info_bits =message(start_+1 : num_info_bits_round(current_round));
+    outer_encoded_current = [protected_info_bits, CRC_encoding(protected_info_bits, poly{r(current_round)})];
+
+
+    len_outer_current = length(outer_encoded_current);
+    start_block_BMST = max(current_round-memory, 1);
+    outer_encoded_block = outer_encoded_current(len_outer_current-m+1:len_outer_current);
+    original_encoded_block(current_round, :) = outer_encoded_block;
+    num_m = 0;
+    for sb = current_round-1 : -1 : start_block_BMST
+      num_m = num_m + 1;
+      permuting_block = original_encoded_block(sb, :);
+      outer_encoded_block = mod(outer_encoded_block + permuting_block(orderings(num_m, :)),2);
+    end
+    outer_encoded(encoded_last_end+1:encoded_last_end+m) = outer_encoded_block;
+    message_last_end = message_last_end + m - r(current_round);
+  end
+  
+end
