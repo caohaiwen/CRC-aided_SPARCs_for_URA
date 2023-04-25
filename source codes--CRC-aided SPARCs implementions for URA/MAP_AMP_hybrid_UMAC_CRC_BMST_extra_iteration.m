@@ -18,7 +18,7 @@ function [PUPE_MD, PUPE_FA, PUPE_MD_again, PUPE_FA_again] = MAP_AMP_hybrid_UMAC_
   % num_trials: the number of simulation runs;
   % memory: the memory parameter used in BMST-CRC encoding;
 
-
+% the CRC generator polynomials with different number of CRC bits
 poly{4} = [1 0 0 1 1]; % up to length 11
 
 % poly{5} = [1 0 0 1 0 1]; % up to length 26
@@ -45,6 +45,8 @@ poly{9} = [1 0 0 1 1 1 1 0 0 1]; % up to length 8
 
 % poly{11} = [1 0 0 1 1 1 1 0 1 0 1 1]; % up to length 4
 poly{11} = [1 0 1 0 1 1 1 0 0 0 1 1]; % up to length 12
+
+poly{12} = [1 0 1 0 0 1 0 0 1 1 1 1 1]; % up to length 11
 
 poly{13} = [1 0 0 0 0 1 0 1 1 0 1 1 1 1]; % up to length 11
 
