@@ -1,4 +1,4 @@
-This repository contains source codes for simulation results shown in one submitted paper "CRC-aided SPARCs for URA". Specifically, this repository includes three folders which correspond to ``CRC-BMST codes for stitching'', ``CRC-aided SPARCs for URA'', ``parameter configurations''.
+This repository contains source code for the simulation results presented in a submitted paper titled "CRC-aided SPARCs for URA." The repository includes three folders: "CRC-BMST codes for stitching," "CRC-aided SPARCs for URA," and "parameter configurations."
 
 For the folder about ``CRC-BMST codes for stitching'', it contains:
 1. one subfolder includes MATLAB source codes for implementation of our proposed CRC-BMST codes.
