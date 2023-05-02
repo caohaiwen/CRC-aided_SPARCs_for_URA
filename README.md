@@ -8,4 +8,4 @@ For the folder about "CRC-aided SPARCs for URA," it contains MATLAB source codes
 
 For the folder about "parameter configurations," it contains '.mat' files which store the specific parameters used in the submitted paper's simulation results.
 
-If there is any confusion regaridng the MATLAB source codes, please feel free to let me know by either using issues or [emailing](mailto: haiwen.cao94@gmail.com) me.
+If there is any confusion regaridng the MATLAB source codes, please feel free to let me know by either using issues or [emailing](mailto:haiwen.cao94@gmail.com) me.
