@@ -1,4 +1,4 @@
-This repository contains source code for the simulation results presented in one paper titled "CRC-aided SPARCs for Unsourced Random Access." The repository includes three folders: "CRC-BMST codes for stitching," "CRC-aided SPARCs for URA," and "parameter configurations."
+This repository contains source code for the simulation results presented in one paper titled "[CRC-aided Spare Regression Codes for Unsourced Random Access](https://doi.org/10.1109/LCOMM.2023.3281495)." The repository includes three folders: "CRC-BMST codes for stitching," "CRC-aided SPARCs for URA," and "parameter configurations."
 
 For the folder about "CRC-BMST codes for stitching," it contains:
 1. one subfolder includes MATLAB source codes for implementation of our proposed CRC-BMST codes;
