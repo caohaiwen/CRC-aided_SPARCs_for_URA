@@ -10,4 +10,21 @@ For the folder about "parameter configurations," it contains '.mat' files which 
 
 If there is any confusion regaridng the MATLAB source codes, please feel free to let me know by either using issues or [emailing](mailto:haiwen.cao94@gmail.com) me.
 
+
+
+## Citation
+
 If this project has been helpful to your research, please cite it accordingly.
+
+```
+@ARTICLE{CXL23,
+  author={Cao, Haiwen and Xing, Jiongyue and Liang, Shansuo},
+  journal={IEEE Communications Letters}, 
+  title={CRC-aided Sparse Regression Codes for Unsourced Random Access}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/LCOMM.2023.3281495}
+  }
+```
