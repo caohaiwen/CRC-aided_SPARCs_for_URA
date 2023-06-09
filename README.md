@@ -17,10 +17,10 @@ If there is any confusion regaridng the MATLAB source codes, please feel free to
 If this project has been helpful to your research, please cite it accordingly.
 
 ```
-@ARTICLE{CXL23,
+@article{CXL23,
   author={Cao, Haiwen and Xing, Jiongyue and Liang, Shansuo},
-  journal={IEEE Communications Letters}, 
-  title={CRC-aided Sparse Regression Codes for Unsourced Random Access}, 
+  journal={IEEE Commun. Lett.}, 
+  title={{CRC}-aided Sparse Regression Codes for Unsourced Random Access}, 
   year={2023},
   volume={},
   number={},
