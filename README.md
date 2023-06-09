@@ -18,13 +18,13 @@ If this project has been helpful to your research, please cite it accordingly.
 
 ```
 @article{CXL23,
+  title={{CRC}-aided Sparse Regression Codes for Unsourced Random Access},
   author={Cao, Haiwen and Xing, Jiongyue and Liang, Shansuo},
-  journal={IEEE Commun. Lett.}, 
-  title={{CRC}-aided Sparse Regression Codes for Unsourced Random Access}, 
+  journal={IEEE Commun. Lett.},
+  volume    = {},
+  number    = {},
+  pages     = {1--1},
   year={2023},
-  volume={},
-  number={},
-  pages={1-1},
-  doi={10.1109/LCOMM.2023.3281495}
-  }
+  publisher={IEEE}
+}
 ```
